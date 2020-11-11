@@ -1,0 +1,49 @@
+.container {
+  $padding: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+
+  width: calc(100vw - #{$padding} * 2);
+  height: 68px;
+  padding: 0 $padding;
+
+  .links {
+    &, ul {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+    img {
+      width: 92px;
+      margin-right: 32px;
+    }
+
+    ul > *:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+
+  .profile {
+
+  }
+
+  .back {
+    position: absolute;
+    bottom: -20px;
+    left: 120px;
+    transform: rotate(180deg);
+    svg {
+      width: 24px;
+      height: 24px;
+      fill: rgba(white, 0.5);
+    }
+    &:hover {
+      svg {
+        fill: white;
+      }
+    }
+  }
+}

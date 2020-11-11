@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  transition: all 0.2s;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+body {
+  background: #141414;
+  color: #fff;
+  font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 10px;
+  line-height: 1.2;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+ul li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  font-size: 14px;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+a.active {
+  font-weight: 700;
+}
+
+button, button:active {
+  outline: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}

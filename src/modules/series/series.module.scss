@@ -1,0 +1,7 @@
+@import 'src/sass/components/container';
+
+.container {
+  & > div {
+    margin-bottom: 12px;
+  }
+}

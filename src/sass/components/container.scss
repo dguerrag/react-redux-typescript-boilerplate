@@ -1,0 +1,16 @@
+@import 'src/sass/utils/mixins';
+@import 'src/sass/variables/sizes';
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+
+  width: calc(100vw - 120px);
+  min-height: calc(100vh - #{$header-height} - 120px);
+  padding: 120px 60px;
+  margin: 0 auto;
+  @include hideScrollbar();
+}

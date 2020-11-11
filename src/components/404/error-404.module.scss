@@ -1,0 +1,14 @@
+@import 'src/sass/variables/sizes';
+
+.container {
+  width: 100vw;
+  height: calc(100vh - #{$header-height});
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    fill: white;
+  }
+}

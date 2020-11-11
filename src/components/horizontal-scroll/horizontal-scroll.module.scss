@@ -1,0 +1,47 @@
+.container {
+  position: relative;
+
+  .backArrow, .forwardsArrow {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    background: rgba(20, 20, 20, .1);
+    height: 100%;
+    width: 50px;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    &:hover {
+      background: rgba(20, 20, 20, .5);
+      transition: fill 0.01s;
+      svg {
+        fill: white;
+      }
+    }
+  }
+
+  .backArrow {
+    left: 0;
+    svg {
+      transform: rotate(180deg);
+    }
+    &:hover {
+      svg {
+        transform: scale(1.4) rotate(180deg);
+      }
+    }
+  }
+
+  .forwardsArrow {
+    right: 0;
+
+    &:hover {
+      svg {
+        transform: scale(1.4);
+      }
+    }
+  }
+}
