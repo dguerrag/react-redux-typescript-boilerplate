@@ -77,13 +77,13 @@ export const movies: Movie[] = [
 		description: 'In a post-apocalyptic wasteland, a woman rebels against a tyrannical ruler in search for her homeland with the aid of a group of female prisoners, a psychotic worshiper, and a drifter named Max.',
 		director: 'George Miller',
 		year: 2015,
-		imgUrl: 'https://lh3.googleusercontent.com/proxy/MLlvotmcot0mHk536U4gzQgVmYxopuDa7srqLwNGVByownzqOv3rJBVVTz584O_UCOQO7Yf7_bPNpDECiiyMxWZkYQoETVJJAADhRwK9gc97L7laFWq813qKYs8NBtmXAwcH3Lpr4CY',
+		imgUrl: 'https://lh3.googleusercontent.com/proxy/vsZ2nj-YdlEvzKfNdCaCl-4v_Mcfg_0XhzEnqF-IOwvVSg9N-ngXWhlrKgpCbe9D78Gh-xcORu4Fd-knhHFF4Bb5s-RMQnl0B9Dt52--x8CL3SxYaIu16r90xxN8tG_vncqlPGyk8Dk',
 		coincidence: 95,
 		duration: '2h 3min'
 	},
 	{
 		id: 10,
-		title: 'Froze II',
+		title: 'Frozen II',
 		description: 'Anna, Elsa, Kristoff, Olaf and Sven leave Arendelle to travel to an ancient, autumn-bound forest of an enchanted land. They set out to find the origin of Elsa\'s powers in order to save their kingdom.',
 		director: 'Jennifer Lee, Chris Buck',
 		year: 2019,

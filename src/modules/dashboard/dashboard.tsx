@@ -1,39 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import styles from './dashboard.module.scss';
-import { getMovies } from '../../api/movies.api';
-import { Movie } from '../../models/movie.type';
 import { Card } from '../../components/card/card';
 import { CardType } from '../../models/enums';
 import { HorizontalScroll } from '../../components/horizontal-scroll/horizontal-scroll';
-import { Series } from '../../models/series.type';
-import { getSeries } from '../../api/series.api';
-import { getUserList } from '../../api/user-list.api';
-import { UserList } from '../../models/user-list.type';
+import { useDispatch } from 'react-redux';
+import { useMoviesReducerMovies } from '../movies/store/movies.reducer';
+import { requestMovies } from '../movies/store/movies.actions';
+import { requestSeries } from '../series/store/series.actions';
+import { useSeriesReducerSeries } from '../series/store/series.reducer';
+import { useListReducerList } from '../list/store/list.reducer';
+import { requestList } from '../list/store/list.actions';
 
 export const Dashboard = () => {
-	const [movies, setMovies]: [Movie[], Function] = useState([]);
-	const [series, setSeries]: [Series[], Function] = useState([]);
-	const [myList, setMyList]: [UserList[], Function] = useState([]);
+	const dispatch = useDispatch();
+	const myList = useListReducerList();
+	const movies = useMoviesReducerMovies();
+	const series = useSeriesReducerSeries();
 
 	useEffect(() => {
-		getUserList().then(res => {
-			setMyList(res);
-		});
-		getMovies().then(res => {
-			setMovies(res);
-		});
-		getSeries().then(res => {
-			setSeries(res);
-		});
-	}, []);
-
-	const addElementToList = (item: Movie | Series, type: CardType) => {
-		setMyList([...myList, {item, type}]);
-	};
-
-	const removeElementFromList = (id: number) => {
-		setMyList(myList.filter(e => e.item.id !== id));
-	};
+		dispatch(requestList());
+		dispatch(requestMovies());
+		dispatch(requestSeries())
+	}, [dispatch]);
 
 	return (
 		<div className={styles.container}>
@@ -44,10 +32,7 @@ export const Dashboard = () => {
 					{myList.map((item, i) =>
 						<Card key={i}
 							  item={item.item}
-							  type={item.type}
-							  addFavorite={addElementToList}
-							  removeFavorite={removeElementFromList}
-							  isFavorite={true}/>)}
+							  type={item.type}/>)}
 				</HorizontalScroll>
 			</>
 			}
@@ -55,18 +40,14 @@ export const Dashboard = () => {
 			<HorizontalScroll className={styles.row}>
 				{movies.map(movie => <Card key={movie.id}
 										   item={movie}
-										   type={CardType.Movie}
-										   addFavorite={addElementToList}
-										   removeFavorite={removeElementFromList}/>
+										   type={CardType.Movie}/>
 				)}
 			</HorizontalScroll>
 			<div className={styles.title}>Series</div>
 			<HorizontalScroll className={styles.row}>
 				{series.map(serie => <Card key={serie.id}
 										   item={serie}
-										   type={CardType.Series}
-										   addFavorite={addElementToList}
-										   removeFavorite={removeElementFromList}/>
+										   type={CardType.Series}/>
 				)}
 			</HorizontalScroll>
 		</div>

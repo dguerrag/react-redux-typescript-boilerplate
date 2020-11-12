@@ -1,19 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import styles from './movies.module.scss';
 import { useParams } from 'react-router-dom';
-import { getMovieById } from '../../api/movies.api';
-import { Movie } from '../../models/movie.type';
 import { Card } from '../../components/card/card';
 import { CardType } from '../../models/enums';
+import { useDispatch } from 'react-redux';
+import { useMoviesReducerSelectedMovie } from './store/movies.reducer';
+import { requestMovieById } from './store/movies.actions';
 
 
 export const MoviesDetail = () => {
+	const dispatch = useDispatch();
 	const {id} = useParams<{ id: string }>();
-	const [movie, setMovie]: [Movie | undefined, Function] = useState();
+	const movie = useMoviesReducerSelectedMovie();
 
 	useEffect(() => {
-		getMovieById(Number(id)).then((res) => setMovie(res));
-	}, [id]);
+		dispatch(requestMovieById(Number(id)));
+	}, [dispatch, id]);
 
 	return (
 		<>

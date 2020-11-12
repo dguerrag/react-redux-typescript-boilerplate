@@ -4,19 +4,21 @@ import { NavLink } from 'react-router-dom';
 import { Routes } from '../../routes/routes.types';
 import NetflixLogo from '../../assets/images/netflix_logo.svg';
 import { Arrow } from '../../assets/images/arrow';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { goBack } from 'connected-react-router';
+import { useRouterReducerLocation } from '../../store/router.reducer';
 
 export const Header = () => {
+	const dispatch = useDispatch();
+	const {pathname} = useRouterReducerLocation();
 	const [showBack, setShowBack] = useState(false);
-	const location = useLocation();
-	const history = useHistory();
 
 	useEffect(() => {
-		setShowBack(location.pathname !== Routes.DASHBOARD);
-	}, [location.pathname]);
+		setShowBack(pathname !== Routes.DASHBOARD);
+	}, [pathname]);
 
-	const goBack = () => {
-		history.goBack();
+	const navigateBack = () => {
+		dispatch(goBack());
 	};
 
 	return (
@@ -42,7 +44,7 @@ export const Header = () => {
 			{/*<div>AVATAR</div>*/}
 			{/*</div>*/}
 			{showBack && <button className={styles.back}
-					 onClick={goBack}>
+								 onClick={navigateBack}>
 				<Arrow/>
 			</button>}
 		</div>

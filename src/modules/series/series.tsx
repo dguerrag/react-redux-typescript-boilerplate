@@ -1,18 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import styles from './series.module.scss';
 import { Card } from '../../components/card/card';
 import { CardType } from '../../models/enums';
-import { getSeries } from '../../api/series.api';
-import { Series } from '../../models/series.type';
+import { useSeriesReducerSeries } from './store/series.reducer';
+import { useDispatch } from 'react-redux';
+import { requestSeries } from './store/series.actions';
 
 export const SeriesLayout = () => {
-	const [series, setSeries]: [Series[], Function] = useState([]);
+	const dispatch = useDispatch();
 
+	const series = useSeriesReducerSeries();
 	useEffect(() => {
-		getSeries().then(res => {
-			setSeries(res);
-		});
-	}, [series]);
+		if (!series.length) {
+			dispatch(requestSeries());
+		}
+	}, [series, dispatch]);
 
 	return (
 		<div className={styles.container}>

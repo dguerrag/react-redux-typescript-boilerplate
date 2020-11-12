@@ -1,17 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import styles from './movies.module.scss';
-import { Movie } from '../../models/movie.type';
-import { getMovies } from '../../api/movies.api';
 import { Card } from '../../components/card/card';
 import { CardType } from '../../models/enums';
+import { useMoviesReducerMovies } from './store/movies.reducer';
+import { useDispatch } from 'react-redux';
+import { requestMovies } from './store/movies.actions';
 
 export const Movies = () => {
-	const [movies, setMovies]: [Movie[], Function] = useState([]);
+	const dispatch = useDispatch();
+	const movies = useMoviesReducerMovies();
 
 	useEffect(() => {
-		getMovies().then(res => {
-			setMovies(res);
-		});
+		if (!movies.length) {
+			dispatch(requestMovies());
+		}
 	}, [movies]);
 
 	return (

@@ -5,37 +5,30 @@ import { Series } from '../../models/series.type';
 import LogoShort from '../../assets/images/netflix_logo_short.svg';
 import { CardType } from '../../models/enums';
 import { Plus } from '../../assets/images/plus';
-import { addElementToList, removeElementFromList } from '../../api/user-list.api';
 import { Checked } from '../../assets/images/checked';
-import { useHistory } from 'react-router-dom';
 import { Routes } from '../../routes/routes.types';
+import { useDispatch } from 'react-redux';
+import { requestAddItemList, requestRemoveItemFromList } from '../../modules/list/store/list.actions';
+import { push } from 'connected-react-router';
+import { useListReducerIsFavorite } from '../../modules/list/store/list.reducer';
 
 
 type CardProps = {
 	item: Movie | Series;
 	type: CardType;
-	addFavorite?: Function;
-	removeFavorite?: Function;
-	isFavorite?: boolean;
 }
-export const Card = ({
-						 item,
-						 type,
-						 addFavorite = () => {},
-						 removeFavorite = () => {},
-						 isFavorite = false}: CardProps) => {
+export const Card = ({item, type}: CardProps) => {
+	const dispatch = useDispatch();
 	const [hover, setHover] = useState(false);
-	const history = useHistory();
+	const isFavorite = useListReducerIsFavorite(item.id);
 
-	const addItemToFavorite = async () => {
-		await addElementToList(item, type);
-		addFavorite(item, type);
+	const addItemToFavorite = () => {
+		dispatch(requestAddItemList(item, type));
 		setHover(false);
 	};
 
-	const removeItemFromFavorite = async (id: number) => {
-		await removeElementFromList(id);
-		removeFavorite(id);
+	const removeItemFromFavorite = (id: number) => {
+		dispatch(requestRemoveItemFromList(id));
 		setHover(false);
 	};
 
@@ -44,12 +37,12 @@ export const Card = ({
 			return item.duration;
 		}
 		return (item as Series).season.length + ' seasons';
-	}
+	};
 
 	const navigateToDetail = () => {
 		const baseUrl = type === CardType.Movie ? Routes.MOVIES : Routes.SERIES;
-		history.push(`${baseUrl}/${item.id}`);
-	}
+		dispatch(push(`${baseUrl}/${item.id}`));
+	};
 
 	return (
 		<div className={`${styles.container}`}

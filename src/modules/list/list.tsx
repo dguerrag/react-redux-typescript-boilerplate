@@ -1,23 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import styles from './list.module.scss';
 import { Card } from '../../components/card/card';
-import { getUserList } from '../../api/user-list.api';
-import { UserList } from '../../models/user-list.type';
+import { useListReducerList } from './store/list.reducer';
+import { useDispatch } from 'react-redux';
+import { requestList } from './store/list.actions';
 
 export const List = () => {
-	const [list, setList]: [UserList[], Function] = useState([]);
+	const dispatch = useDispatch();
+	const list = useListReducerList();
 
 	useEffect(() => {
-		getUserList().then(res => {
-			setList(res);
-		});
-	}, [list]);
+		if (!list.length) {
+			dispatch(requestList());
+		}
+	}, [list, dispatch]);
 
 	return (
 		<div className={styles.container}>
-			{list.map((item, i) => <Card key={i}
-									   item={item.item}
-									   type={item.type}/>
+			{list.map((item, i) =>
+				<Card key={i}
+					  item={item.item}
+					  type={item.type}/>
 			)}
 		</div>
 	);
