@@ -3,7 +3,7 @@ import styles from './card.module.scss';
 import { Movie } from '../../models/movie.type';
 import { Series } from '../../models/series.type';
 import LogoShort from '../../assets/images/netflix_logo_short.svg';
-import { CardType } from '../../models/enums';
+import { CardType } from '../../constants/enums';
 import { Plus } from '../../assets/images/plus';
 import { Checked } from '../../assets/images/checked';
 import { Routes } from '../../routes/routes.types';

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import styles from './movies.module.scss';
 import { useParams } from 'react-router-dom';
 import { Card } from '../../components/card/card';
-import { CardType } from '../../models/enums';
+import { CardType } from '../../constants/enums';
 import { useDispatch } from 'react-redux';
 import { useMoviesReducerSelectedMovie } from './store/movies.reducer';
 import { requestMovieById } from './store/movies.actions';

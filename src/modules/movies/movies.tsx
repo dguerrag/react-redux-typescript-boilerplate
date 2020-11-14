@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import styles from './movies.module.scss';
 import { Card } from '../../components/card/card';
-import { CardType } from '../../models/enums';
+import { CardType } from '../../constants/enums';
 import { useMoviesReducerMovies } from './store/movies.reducer';
 import { useDispatch } from 'react-redux';
 import { requestMovies } from './store/movies.actions';

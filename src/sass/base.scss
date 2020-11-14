@@ -22,7 +22,9 @@ body {
   user-select: none;
   cursor: default;
   @include hideScrollbar();
+  @include declareVariables();
 }
+
 ul li {
   list-style: none;
 }

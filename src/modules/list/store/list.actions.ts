@@ -1,5 +1,5 @@
 import { UserListElement } from '../../../models/user-list.type';
-import { CardType } from '../../../models/enums';
+import { CardType } from '../../../constants/enums';
 import { Movie } from '../../../models/movie.type';
 import { Series } from '../../../models/series.type';
 

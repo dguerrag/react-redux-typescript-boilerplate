@@ -1,7 +1,7 @@
 import { UserListElement } from '../models/user-list.type';
 import { Movie } from '../models/movie.type';
 import { Series } from '../models/series.type';
-import { CardType } from '../models/enums';
+import { CardType } from '../constants/enums';
 
 let list: UserListElement[] = [];
 
