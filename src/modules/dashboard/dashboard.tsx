@@ -43,17 +43,19 @@ export const Dashboard = () => {
 			<div className={styles.title}>Movies</div>
 			<HorizontalScroll className={styles.row}
 							  height={height}>
-				{movies.map(movie => <Card key={movie.id}
-										   item={movie}
-										   type={CardType.Movie}/>
+				{movies.map((movie) =>
+					<Card key={movie.id}
+						  item={movie}
+						  type={CardType.Movie}/>
 				)}
 			</HorizontalScroll>
 			<div className={styles.title}>Series</div>
 			<HorizontalScroll className={styles.row}
 							  height={height}>
-				{series.map(serie => <Card key={serie.id}
-										   item={serie}
-										   type={CardType.Series}/>
+				{series.map((serie) =>
+					<Card key={serie.id}
+						  item={serie}
+						  type={CardType.Series}/>
 				)}
 			</HorizontalScroll>
 		</div>

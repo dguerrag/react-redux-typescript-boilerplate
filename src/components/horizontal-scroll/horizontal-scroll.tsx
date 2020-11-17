@@ -17,6 +17,8 @@ export const HorizontalScroll = ({className, height, children}: HorizontalScroll
 	const [parentWidth, setParentWith] = useState(1);
 	const [maxTranslation, setMaxTranslation] = useState(0);
 
+	// const [test, setTest]: [any, Function] = useState([]);
+
 	useEffect(() => {
 		if (ref?.current) {
 			setParentWith(ref.current.getBoundingClientRect().width);
@@ -28,6 +30,16 @@ export const HorizontalScroll = ({className, height, children}: HorizontalScroll
 			const width = (children.length * Sizes.CARD_WIDTH) + (Sizes.CARD_MARGIN * children.length - 1);
 			setWidth(width);
 			setMaxTranslation(-width + parentWidth);
+			// setWidth(width * 2);
+			// setMaxTranslation(-width * 2 + parentWidth);
+			// if (parentWidth > width) {
+			// 	setTest(children);
+			// } else {
+			// 	const newChildren = children.concat(children).map((e: any, i: number) => {
+			// 		return {...e, key: i};
+			// 	})
+			// 	setTest(newChildren);
+			// }
 		}
 	}, [children, parentWidth]);
 
@@ -65,6 +77,7 @@ export const HorizontalScroll = ({className, height, children}: HorizontalScroll
 					 width: width + Sizes.HORIZONTAL_PADDING * 2
 				 }}>
 				{children}
+				{/*{test}*/}
 			</div>
 			{(parentWidth < width) &&
 			<button className={styles.forwardsArrow}
