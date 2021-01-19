@@ -15,7 +15,7 @@ export const Movies = () => {
 		if (!movies.length) {
 			dispatch(requestMovies());
 		}
-	}, [movies]);
+	}, [movies, dispatch]);
 
 	return (
 		<Fade className={styles.container}>

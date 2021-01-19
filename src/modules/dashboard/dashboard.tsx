@@ -3,7 +3,7 @@ import styles from './dashboard.module.scss';
 import { Card } from '../../components/card/card';
 import { CardType } from '../../constants/enums';
 import { HorizontalScroll } from '../../components/horizontal-scroll/horizontal-scroll';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useMoviesReducerMovies } from '../movies/store/movies.reducer';
 import { requestMovies } from '../movies/store/movies.actions';
 import { requestSeries } from '../series/store/series.actions';
