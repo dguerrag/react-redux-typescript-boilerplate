@@ -9,7 +9,7 @@ export const getSeries = (): Promise<Series[]> => (
 	new Promise((resolve) => setTimeout(() => resolve(series), 200))
 );
 
-export const getSeriesById = (id: number): Promise<Series> => {
+export const getSeriesById = (id: string | number): Promise<Series> => {
 	// All this logic is just for mocking purpose, it just would need to call a simple endpoint from your backend.
 	const serie = series.find(e => e.id === id);
 	if (!serie) {

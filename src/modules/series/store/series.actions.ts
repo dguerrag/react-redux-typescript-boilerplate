@@ -7,11 +7,11 @@ export enum SeriesActionTypes {
 	RECEIVE_SERIES_ID = '[Series] get series by id response'
 }
 
-type RequestSeries = {
+export type RequestSeries = {
 	type: SeriesActionTypes.REQUEST_SERIES;
 }
 
-type ReceiveSeries = {
+export type ReceiveSeries = {
 	type: SeriesActionTypes.RECEIVE_SERIES;
 	series: Series[];
 }
@@ -21,7 +21,7 @@ export type RequestSeriesById = {
 	id: number | string;
 }
 
-type ReceiveSeriesById = {
+export type ReceiveSeriesById = {
 	type: SeriesActionTypes.RECEIVE_SERIES_ID;
 	serie: Series;
 }

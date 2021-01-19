@@ -22,7 +22,7 @@ export const addElementToList = (item: Movie | Series, type: CardType): Promise<
 	return new Promise((resolve) => setTimeout(() => resolve([...list]), 200));
 };
 
-export const removeElementFromList = (id: number): Promise<UserListElement[]> => {
+export const removeElementFromList = (id: string | number): Promise<UserListElement[]> => {
 	// All this logic is just for mocking purpose, it just would need to call a simple endpoint from your backend.
 	list = list.filter(e => e.item.id !== id);
 	return new Promise((resolve) => setTimeout(() => resolve([...list]), 200));

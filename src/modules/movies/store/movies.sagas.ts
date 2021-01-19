@@ -1,5 +1,5 @@
 import { call, put, select, takeLatest } from 'redux-saga/effects';
-import { MovieActionTypes, receiveMovieById, receiveMovies } from './movies.actions';
+import { MovieActionTypes, receiveMovieById, receiveMovies, RequestMovieById } from './movies.actions';
 import { SagaIterator } from '@redux-saga/core';
 import { getMovieById, getMovies } from '../../../api/movies.api';
 import { moviesSelector } from './movies.reducer';
@@ -14,7 +14,7 @@ function* requestMoviesEffect(): SagaIterator {
 	}
 }
 
-function* requestMovieById(action: any): SagaIterator {
+function* requestMovieById(action: RequestMovieById): SagaIterator {
 	try {
 		const {id} = action;
 		const movies = yield select(moviesSelector);

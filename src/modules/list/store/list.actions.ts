@@ -12,33 +12,33 @@ export enum ListActionTypes {
 	RECEIVE_REMOVE_ITEM = '[Remove item from list] remove item from list response'
 }
 
-type RequestList = {
+export type RequestList = {
 	type: ListActionTypes.REQUEST_LIST;
 }
 
-type ReceiveList = {
+export type ReceiveList = {
 	type: ListActionTypes.RECEIVE_LIST;
 	list: UserListElement[];
 }
 
-type RequestAddItemToList = {
+export type RequestAddItemToList = {
 	type: ListActionTypes.REQUEST_ADD_ITEM;
 	item: Movie | Series;
 	itemType: CardType;
 }
 
-type ReceiveAddItemToList = {
+export type ReceiveAddItemToList = {
 	type: ListActionTypes.RECEIVE_ADD_ITEM;
 	item: Movie | Series;
 	itemType: CardType;
 }
 
-type RequestRemoveItemFromList = {
+export type RequestRemoveItemFromList = {
 	type: ListActionTypes.REQUEST_REMOVE_ITEM;
 	id: string | number;
 }
 
-type ReceiveRemoveItemFromList = {
+export type ReceiveRemoveItemFromList = {
 	type: ListActionTypes.RECEIVE_REMOVE_ITEM;
 	id: string | number;
 }

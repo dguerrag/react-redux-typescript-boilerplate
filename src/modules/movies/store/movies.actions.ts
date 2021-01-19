@@ -7,11 +7,11 @@ export enum MovieActionTypes {
 	RECEIVE_MOVIE_ID = '[Movies] get movie by id response'
 }
 
-type RequestMovies = {
+export type RequestMovies = {
 	type: MovieActionTypes.REQUEST_MOVIES;
 }
 
-type ReceiveMovies = {
+export type ReceiveMovies = {
 	type: MovieActionTypes.RECEIVE_MOVIES;
 	movies: Movie[];
 }
@@ -21,7 +21,7 @@ export type RequestMovieById = {
 	id: number | string;
 }
 
-type ReceiveMovieById = {
+export type ReceiveMovieById = {
 	type: MovieActionTypes.RECEIVE_MOVIE_ID;
 	movie: Movie;
 }

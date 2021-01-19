@@ -8,7 +8,7 @@ export const getMovies = (): Promise<Movie[]> => (
 	new Promise((resolve) => setTimeout(() => resolve(movies), 200))
 );
 
-export const getMovieById = (id: number): Promise<Movie> => {
+export const getMovieById = (id: string | number): Promise<Movie> => {
 	// All this logic is just for mocking purpose, it just would need to call a simple endpoint from your backend.
 	const movie = movies.find(e => e.id === id);
 	if (!movie) {

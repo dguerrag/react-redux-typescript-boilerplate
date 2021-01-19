@@ -2,7 +2,7 @@ import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { SagaIterator } from '@redux-saga/core';
 import { seriesSelector } from './series.reducer';
 import { getSeries, getSeriesById } from '../../../api/series.api';
-import { receiveSeries, receiveSeriesById, SeriesActionTypes } from './series.actions';
+import { receiveSeries, receiveSeriesById, RequestSeriesById, SeriesActionTypes } from './series.actions';
 import { Series } from '../../../models/series.type';
 
 function* requestSeriesEffect(): SagaIterator {
@@ -14,7 +14,7 @@ function* requestSeriesEffect(): SagaIterator {
 	}
 }
 
-function* requestSeriesById(action: any): SagaIterator {
+function* requestSeriesById(action: RequestSeriesById): SagaIterator {
 	try {
 		const {id} = action;
 		const series = yield select(seriesSelector);

@@ -1,7 +1,13 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { SagaIterator } from '@redux-saga/core';
 import { addElementToList, getUserList, removeElementFromList } from '../../../api/user-list.api';
-import { ListActionTypes, receiveAddItemList, receiveList, receiveRemoveItemFromList } from './list.actions';
+import {
+	ListActionTypes,
+	receiveAddItemList,
+	receiveList,
+	receiveRemoveItemFromList,
+	RequestAddItemToList, RequestRemoveItemFromList
+} from './list.actions';
 
 function* requestListEffect(): SagaIterator {
 	try {
@@ -12,7 +18,7 @@ function* requestListEffect(): SagaIterator {
 	}
 }
 
-function* requestAddItemToList(action: any): SagaIterator {
+function* requestAddItemToList(action: RequestAddItemToList): SagaIterator {
 	try {
 		const {item, itemType} = action;
 		yield call(addElementToList, item, itemType);
@@ -22,7 +28,7 @@ function* requestAddItemToList(action: any): SagaIterator {
 	}
 }
 
-function* requestRemoveItemFromList(action: any): SagaIterator {
+function* requestRemoveItemFromList(action: RequestRemoveItemFromList): SagaIterator {
 	try {
 		const {id} = action;
 		yield call(removeElementFromList, id);

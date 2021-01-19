@@ -3,7 +3,7 @@ import React, {
 	forwardRef,
 	useEffect,
 	useState,
-	Ref
+	Ref, ReactNode
 } from 'react';
 
 type FadePropTypes = {
@@ -11,7 +11,7 @@ type FadePropTypes = {
 	time?: number;
 	delay?: number;
 	onAnimationEnd?: Function;
-	children: ReactNodeArray;
+	children: ReactNode | ReactNodeArray;
 	[rest: string]: any;
 };
 
