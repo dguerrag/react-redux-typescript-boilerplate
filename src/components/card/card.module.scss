@@ -10,20 +10,18 @@
   flex-shrink: 0;
 
   .hidden {
-    position: fixed;
+    position: absolute;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     height: auto;
-    z-index: 2;
     background: black;
     transition: opacity 0s;
     transform: translate(calc(-50% + #{$card-width} / 2), -$card-height);
-    opacity: 0;
   }
 
   .hover {
     transform: translate(calc(-50% + #{$card-width} / 2), calc(-50% + #{$card-height} / 2));
-    opacity: 1;
 
     .img {
       width: calc(#{$card-width} * 1.15);

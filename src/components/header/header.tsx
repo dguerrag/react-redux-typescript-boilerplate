@@ -18,6 +18,7 @@ export const Header = () => {
 	}, [pathname]);
 
 	const navigateBack = () => {
+		// Example of how to navigate back to browse history using redux
 		dispatch(goBack());
 	};
 
@@ -40,9 +41,6 @@ export const Header = () => {
 					</li>
 				</ul>
 			</nav>
-			<div className={styles.profile}/>
-			{/*<div>AVATAR</div>*/}
-			{/*</div>*/}
 			{showBack && <button className={styles.back}
 								 onClick={navigateBack}>
 				<Arrow/>

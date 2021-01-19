@@ -6,6 +6,7 @@ import { CardType } from '../../constants/enums';
 import { useDispatch } from 'react-redux';
 import { useMoviesReducerSelectedMovie } from './store/movies.reducer';
 import { requestMovieById } from './store/movies.actions';
+import { Fade } from '../../components/Fade';
 
 
 export const MoviesDetail = () => {
@@ -20,9 +21,9 @@ export const MoviesDetail = () => {
 	return (
 		<>
 			{movie &&
-			<div className={styles.container}>
+			<Fade className={styles.container}>
 				<Card item={movie} type={CardType.Movie}/>
-			</div>
+			</Fade>
 			}
 		</>
 	);

@@ -11,7 +11,12 @@ import { useDispatch } from 'react-redux';
 import { requestAddItemList, requestRemoveItemFromList } from '../../modules/list/store/list.actions';
 import { push } from 'connected-react-router';
 import { useListReducerIsFavorite } from '../../modules/list/store/list.reducer';
+import { Fade } from '../Fade';
 
+// The only important thing about this component are the actions,
+// how they are send to the store.
+
+// Behavior of this components was made for fun, do not take it into consideration.
 
 type CardProps = {
 	item: Movie | Series;
@@ -45,13 +50,15 @@ export const Card = ({item, type}: CardProps) => {
 	};
 
 	return (
-		<div className={`${styles.container}`}
+		<div className={styles.container}
 			 onMouseEnter={() => setHover(true)}
 			 onMouseLeave={() => setHover(false)}>
 			<img src={LogoShort} alt={'logo-short'} className={styles.logo}/>
 			{!hover && <div className={styles.img}
 							style={{backgroundImage: `url(${item.imgUrl})`}}/>}
-			<div className={`${styles.hidden} ${hover && styles.hover}`}>
+			<Fade show={hover}
+				  time={0}
+				  className={`${styles.hidden} ${hover && styles.hover}`}>
 				<div className={styles.img}
 					 onClick={navigateToDetail}
 					 style={{backgroundImage: `url(${item.imgUrl})`}}/>
@@ -72,7 +79,7 @@ export const Card = ({item, type}: CardProps) => {
 						<div>{getDuration()}</div>
 					</div>
 				</div>
-			</div>
+			</Fade>
 		</div>
 	);
 };

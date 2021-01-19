@@ -4,12 +4,13 @@ import { Arrow } from '../../assets/images/arrow';
 import { Sizes } from '../../constants/sizes';
 
 
+// This component is not an example, it was just for fun.
+
 type HorizontalScrollProps = {
 	className: string | undefined;
 	height: number;
 	children: ReactNodeArray
 }
-
 export const HorizontalScroll = ({className, height, children}: HorizontalScrollProps) => {
 	const ref = useRef<HTMLHeadingElement>(null);
 	const [translation, setTranslation] = useState(0);
@@ -17,7 +18,6 @@ export const HorizontalScroll = ({className, height, children}: HorizontalScroll
 	const [parentWidth, setParentWith] = useState(1);
 	const [maxTranslation, setMaxTranslation] = useState(0);
 
-	// const [test, setTest]: [any, Function] = useState([]);
 
 	useEffect(() => {
 		if (ref?.current) {
@@ -30,16 +30,6 @@ export const HorizontalScroll = ({className, height, children}: HorizontalScroll
 			const width = (children.length * Sizes.CARD_WIDTH) + (Sizes.CARD_MARGIN * children.length - 1);
 			setWidth(width);
 			setMaxTranslation(-width + parentWidth);
-			// setWidth(width * 2);
-			// setMaxTranslation(-width * 2 + parentWidth);
-			// if (parentWidth > width) {
-			// 	setTest(children);
-			// } else {
-			// 	const newChildren = children.concat(children).map((e: any, i: number) => {
-			// 		return {...e, key: i};
-			// 	})
-			// 	setTest(newChildren);
-			// }
 		}
 	}, [children, parentWidth]);
 
@@ -77,7 +67,6 @@ export const HorizontalScroll = ({className, height, children}: HorizontalScroll
 					 width: width + Sizes.HORIZONTAL_PADDING * 2
 				 }}>
 				{children}
-				{/*{test}*/}
 			</div>
 			{(parentWidth < width) &&
 			<button className={styles.forwardsArrow}

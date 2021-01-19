@@ -4,6 +4,7 @@ import { Card } from '../../components/card/card';
 import { useListReducerList } from './store/list.reducer';
 import { useDispatch } from 'react-redux';
 import { requestList } from './store/list.actions';
+import { Fade } from '../../components/Fade';
 
 export const List = () => {
 	const dispatch = useDispatch();
@@ -16,12 +17,12 @@ export const List = () => {
 	}, [list, dispatch]);
 
 	return (
-		<div className={styles.container}>
+		<Fade className={styles.container}>
 			{list.map((item, i) =>
 				<Card key={i}
 					  item={item.item}
 					  type={item.type}/>
 			)}
-		</div>
+		</Fade>
 	);
 };

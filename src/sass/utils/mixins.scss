@@ -12,13 +12,3 @@
   -o-appearance: none;
   appearance: none;
 }
-
-
-
-@mixin declareVariables {
-  --card-width: 0;
-  --card-height: 0;
-  --card-down-info-height: 0;
-  --card-margin: 0;
-  --horizontal-padding: 0;
-}

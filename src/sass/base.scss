@@ -1,4 +1,6 @@
 @import 'src/sass/utils/mixins';
+@import 'src/sass/variables/global-variables';
+@import 'src/sass/animations/fade.animations';
 
 * {
   margin: 0;
@@ -22,7 +24,6 @@ body {
   user-select: none;
   cursor: default;
   @include hideScrollbar();
-  @include declareVariables();
 }
 
 ul li {

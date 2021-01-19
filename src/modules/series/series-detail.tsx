@@ -6,6 +6,7 @@ import { CardType } from '../../constants/enums';
 import { useSeriesReducerSelectedSeries } from './store/series.reducer';
 import { useDispatch } from 'react-redux';
 import { requestSeriesById } from './store/series.actions';
+import { Fade } from '../../components/Fade';
 
 
 export const SeriesDetail = () => {
@@ -20,9 +21,9 @@ export const SeriesDetail = () => {
 	return (
 		<>
 			{series &&
-			<div className={styles.container}>
+			<Fade className={styles.container}>
 				<Card item={series} type={CardType.Series}/>
-			</div>
+			</Fade>
 			}
 		</>
 	);

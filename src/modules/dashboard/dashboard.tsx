@@ -3,7 +3,7 @@ import styles from './dashboard.module.scss';
 import { Card } from '../../components/card/card';
 import { CardType } from '../../constants/enums';
 import { HorizontalScroll } from '../../components/horizontal-scroll/horizontal-scroll';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useMoviesReducerMovies } from '../movies/store/movies.reducer';
 import { requestMovies } from '../movies/store/movies.actions';
 import { requestSeries } from '../series/store/series.actions';
@@ -11,23 +11,29 @@ import { useSeriesReducerSeries } from '../series/store/series.reducer';
 import { useListReducerList } from '../list/store/list.reducer';
 import { requestList } from '../list/store/list.actions';
 import { Sizes } from '../../constants/sizes';
+import { Fade } from '../../components/Fade';
 
 const height = Sizes.CARD_HEIGHT * 1.15 + Sizes.CARD_DOWN_INFO_HEIGHT;
 export const Dashboard = () => {
 	const dispatch = useDispatch();
+	// get data from store an attach them to the state.
 	const myList = useListReducerList();
 	const movies = useMoviesReducerMovies();
 	const series = useSeriesReducerSeries();
 
 
 	useEffect(() => {
+		// fetch data on component first load
 		dispatch(requestList());
 		dispatch(requestMovies());
 		dispatch(requestSeries());
 	}, [dispatch]);
 
 	return (
-		<div className={styles.container}>
+		<Fade
+			show={movies.length && series.length}
+			time={1}
+			className={styles.container}>
 			{!!myList.length &&
 			<>
 				<div className={styles.title}>My List</div>
@@ -58,6 +64,6 @@ export const Dashboard = () => {
 						  type={CardType.Series}/>
 				)}
 			</HorizontalScroll>
-		</div>
+		</Fade>
 	);
 };
