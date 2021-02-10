@@ -1,34 +1,36 @@
-.container {
-  $width: 294px;
-  $height: 165px;
+@import 'src/sass/variables/sizes';
 
+.container {
   position: relative;
-  width: $width;
-  height: $height;
+  width: $card-width;
+  height: $card-height;
   background: black;
 
   cursor: pointer;
   flex-shrink: 0;
 
   .hidden {
-    position: fixed;
+    position: absolute;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     height: auto;
-    z-index: 2;
     background: black;
     transition: opacity 0s;
-    transform: translate(calc(-50% + #{$width} / 2), -$height) scale(1);
-    opacity: 0;
+    transform: translate(calc(-50% + #{$card-width} / 2), -$card-height);
   }
 
   .hover {
-    transform: translate(calc(-50% + #{$width} / 2), calc(-50% + #{$height} / 2)) scale(1.15);
-    opacity: 1;
+    transform: translate(calc(-50% + #{$card-width} / 2), calc(-50% + #{$card-height} / 2));
+
+    .img {
+      width: calc(#{$card-width} * 1.15);
+      height: calc(#{$card-height} * 1.15);
+    }
   }
 
   &:not(:last-child) {
-    margin-right: 6px;
+    margin-right: var(--card-margin);
   }
 
   .logo {
@@ -39,8 +41,8 @@
   }
 
   .img, .placeholder {
-    width: $width;
-    height: $height;
+    width: $card-width;
+    height: $card-height;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -52,7 +54,9 @@
     background: #181818;
     padding: 16px;
     font-size: 16px;
-    
+
+    height: $card-down-info-height;
+
     .innerInfo {
       display: flex;
       flex-direction: row;

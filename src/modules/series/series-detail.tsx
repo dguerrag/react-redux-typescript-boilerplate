@@ -5,6 +5,7 @@ import { Card } from '../../components/card/card';
 import { CardType } from '../../models/enums';
 import { getSeriesById } from '../../api/series.api';
 import { Series } from '../../models/series.type';
+import { Fade } from '../../components/Fade';
 
 
 export const SeriesDetail = () => {
@@ -18,9 +19,9 @@ export const SeriesDetail = () => {
 	return (
 		<>
 			{series &&
-			<div className={styles.container}>
+			<Fade className={styles.container}>
 				<Card item={series} type={CardType.Series}/>
-			</div>
+			</Fade>
 			}
 		</>
 	);

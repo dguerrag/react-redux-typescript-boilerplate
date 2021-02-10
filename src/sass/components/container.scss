@@ -8,9 +8,11 @@
   align-items: flex-start;
   flex-wrap: wrap;
 
-  width: calc(100vw - 120px);
+  width: 80vw;
   min-height: calc(100vh - #{$header-height} - 120px);
-  padding: 120px 60px;
+  padding: 120px 0;
   margin: 0 auto;
+
+  opacity: 0;
   @include hideScrollbar();
 }

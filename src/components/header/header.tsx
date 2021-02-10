@@ -38,9 +38,6 @@ export const Header = () => {
 					</li>
 				</ul>
 			</nav>
-			<div className={styles.profile}/>
-			{/*<div>AVATAR</div>*/}
-			{/*</div>*/}
 			{showBack && <button className={styles.back}
 					 onClick={goBack}>
 				<Arrow/>

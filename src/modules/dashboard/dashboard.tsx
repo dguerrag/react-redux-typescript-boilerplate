@@ -8,12 +8,15 @@ import { HorizontalScroll } from '../../components/horizontal-scroll/horizontal-
 import { Series } from '../../models/series.type';
 import { getSeries } from '../../api/series.api';
 import { getUserList } from '../../api/user-list.api';
-import { UserList } from '../../models/user-list.type';
+import { UserListElement } from '../../models/user-list.type';
+import { Sizes } from '../../constants/sizes';
+import { Fade } from '../../components/Fade';
 
+const height = Sizes.CARD_HEIGHT * 1.15 + Sizes.CARD_DOWN_INFO_HEIGHT;
 export const Dashboard = () => {
 	const [movies, setMovies]: [Movie[], Function] = useState([]);
 	const [series, setSeries]: [Series[], Function] = useState([]);
-	const [myList, setMyList]: [UserList[], Function] = useState([]);
+	const [myList, setMyList]: [UserListElement[], Function] = useState([]);
 
 	useEffect(() => {
 		getUserList().then(res => {
@@ -36,11 +39,15 @@ export const Dashboard = () => {
 	};
 
 	return (
-		<div className={styles.container}>
+		<Fade
+			show={movies.length && series.length}
+			time={1}
+			className={styles.container}>
 			{!!myList.length &&
 			<>
 				<div className={styles.title}>My List</div>
-				<HorizontalScroll className={styles.row}>
+				<HorizontalScroll className={styles.row}
+								  height={height}>
 					{myList.map((item, i) =>
 						<Card key={i}
 							  item={item.item}
@@ -52,7 +59,8 @@ export const Dashboard = () => {
 			</>
 			}
 			<div className={styles.title}>Movies</div>
-			<HorizontalScroll className={styles.row}>
+			<HorizontalScroll className={styles.row}
+							  height={height}>
 				{movies.map(movie => <Card key={movie.id}
 										   item={movie}
 										   type={CardType.Movie}
@@ -61,7 +69,8 @@ export const Dashboard = () => {
 				)}
 			</HorizontalScroll>
 			<div className={styles.title}>Series</div>
-			<HorizontalScroll className={styles.row}>
+			<HorizontalScroll className={styles.row}
+							  height={height}>
 				{series.map(serie => <Card key={serie.id}
 										   item={serie}
 										   type={CardType.Series}
@@ -69,6 +78,6 @@ export const Dashboard = () => {
 										   removeFavorite={removeElementFromList}/>
 				)}
 			</HorizontalScroll>
-		</div>
+		</Fade>
 	);
 };

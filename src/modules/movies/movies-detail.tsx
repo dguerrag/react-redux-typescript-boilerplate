@@ -5,6 +5,7 @@ import { getMovieById } from '../../api/movies.api';
 import { Movie } from '../../models/movie.type';
 import { Card } from '../../components/card/card';
 import { CardType } from '../../models/enums';
+import { Fade } from '../../components/Fade';
 
 
 export const MoviesDetail = () => {
@@ -18,9 +19,9 @@ export const MoviesDetail = () => {
 	return (
 		<>
 			{movie &&
-			<div className={styles.container}>
+			<Fade className={styles.container}>
 				<Card item={movie} type={CardType.Movie}/>
-			</div>
+			</Fade>
 			}
 		</>
 	);

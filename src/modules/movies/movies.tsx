@@ -4,6 +4,7 @@ import { Movie } from '../../models/movie.type';
 import { getMovies } from '../../api/movies.api';
 import { Card } from '../../components/card/card';
 import { CardType } from '../../models/enums';
+import { Fade } from '../../components/Fade';
 
 export const Movies = () => {
 	const [movies, setMovies]: [Movie[], Function] = useState([]);
@@ -15,11 +16,11 @@ export const Movies = () => {
 	}, [movies]);
 
 	return (
-		<div className={styles.container}>
+		<Fade className={styles.container}>
 			{movies.map(movie => <Card key={movie.id}
 									   item={movie}
 									   type={CardType.Movie}/>
 			)}
-		</div>
+		</Fade>
 	);
 };

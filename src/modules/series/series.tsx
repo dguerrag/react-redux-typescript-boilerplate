@@ -4,6 +4,7 @@ import { Card } from '../../components/card/card';
 import { CardType } from '../../models/enums';
 import { getSeries } from '../../api/series.api';
 import { Series } from '../../models/series.type';
+import { Fade } from '../../components/Fade';
 
 export const SeriesLayout = () => {
 	const [series, setSeries]: [Series[], Function] = useState([]);
@@ -15,11 +16,11 @@ export const SeriesLayout = () => {
 	}, [series]);
 
 	return (
-		<div className={styles.container}>
+		<Fade className={styles.container}>
 			{series.map(movie => <Card key={movie.id}
 									   item={movie}
 									   type={CardType.Series}/>
 			)}
-		</div>
+		</Fade>
 	);
 };

@@ -73,17 +73,17 @@ export const movies: Movie[] = [
 	},
 	{
 		id: 9,
-		title: 'Mad Max: Fury Road',
-		description: 'In a post-apocalyptic wasteland, a woman rebels against a tyrannical ruler in search for her homeland with the aid of a group of female prisoners, a psychotic worshiper, and a drifter named Max.',
-		director: 'George Miller',
-		year: 2015,
-		imgUrl: 'https://lh3.googleusercontent.com/proxy/MLlvotmcot0mHk536U4gzQgVmYxopuDa7srqLwNGVByownzqOv3rJBVVTz584O_UCOQO7Yf7_bPNpDECiiyMxWZkYQoETVJJAADhRwK9gc97L7laFWq813qKYs8NBtmXAwcH3Lpr4CY',
+		title: 'The Lord of the Rings: The Fellowship of the Ring',
+		description: '"One ring to rule them all, One ring to find them. One ring to bring them all and in the darkness bind them." In this part of the trilogy, the young Hobbit Frodo Baggins inherits a ring; but this ring is no mere trinket. It is the One Ring, an instrument of absolute power that could allow Sauron, the dark Lord of Mordor, to rule Middle-earth and enslave its peoples. Frodo, together with a Fellowship that includes his loyal Hobbit friends, Humans, a Wizard, a Dwarf and an Elf, must take the One Ring across Middle-earth to Mount Doom, where it first was forged, and destroy it forever. Such a journey means venturing deep into territory manned by Sauron, where he is amassing his army of Orcs. And it is not only external evils that the Fellowship must combat, but also internal dissension and the corrupting influence of the One Ring itself. The course of future history is entwined with the fate of the Fellowship.',
+		director: 'Peter Jackson',
+		year: 2001,
+		imgUrl: 'https://i.ytimg.com/vi/vvSyhWKVCsQ/maxresdefault.jpg',
 		coincidence: 95,
 		duration: '2h 3min'
 	},
 	{
 		id: 10,
-		title: 'Froze II',
+		title: 'Frozen II',
 		description: 'Anna, Elsa, Kristoff, Olaf and Sven leave Arendelle to travel to an ancient, autumn-bound forest of an enchanted land. They set out to find the origin of Elsa\'s powers in order to save their kingdom.',
 		director: 'Jennifer Lee, Chris Buck',
 		year: 2019,
@@ -93,11 +93,11 @@ export const movies: Movie[] = [
 	},
 	{
 		id: 11,
-		title: 'El Hoyo',
-		description: 'A vertical prison with one cell per level. Two people per cell. One only food platform and two minutes per day to feed from up to down. An endless nightmare trapped in The Hole.',
-		director: 'Galder Gaztelu-Urrutia',
-		year: 2019,
-		imgUrl: 'https://fotos00.deia.eus/2020/03/26/690x278/el-hoyo.jpg',
+		title: 'The Hobbit: An Unexpected Journey',
+		description: 'Bilbo Baggins, a Hobbit, journeys to the Lonely Mountain accompanied by a group of dwarves to reclaim a treasure taken from them by the dragon Smaug. Bilbo is swept into an epic quest to reclaim the lost Dwarf Kingdom of Erebor, which was long ago conquered by the dragon Smaug. Approached out of the blue by the wizard Gandalf the Grey, Bilbo finds himself joining a company of thirteen dwarves led by the legendary warrior Thorin Oakenshield. Although their goal lies to the East and the wastelands of the Lonely Mountain, first they must escape the goblin tunnels, where Bilbo meets the creature that will change his life forever... Gollum. Here, alone with Gollum, on the shores of an underground lake, the unassuming Bilbo Baggins not only discovers depths ofguile and courage that surprise even him, he also gains possession of Gollum\'s "precious" ...a simple, gold ring that is tied to the fate of all Middle-earth in ways Bilbo cannot begin to know.',
+		director: 'Peter Jackson',
+		year: 2012,
+		imgUrl: 'https://www.denofgeek.com/wp-content/uploads/2012/12/thehobbit_1920x1080_desktop-wallpaper.jpg?fit=1920%2C1080',
 		coincidence: 87,
 		duration: '2h 3min'
 	},
@@ -143,11 +143,11 @@ export const movies: Movie[] = [
 	},
 	{
 		id: 1,
-		title: 'Grease',
-		description: 'Grease is a 1978 American musical romantic comedy film based on the 1971 musical of the same name by Jim Jacobs and Warren Casey. Written by Bronte Woodard[2] and directed by Randal Kleiser in his theatrical feature film debut, the film depicts the lives of greaser Danny Zuko and Australian transfer student Sandy Olsson who develop an attraction for each other. The film stars John Travolta as Danny, Olivia Newton-John as Sandy, and Stockard Channing as Betty Rizzo, the leader of the Pink Ladies.',
-		director: 'Randal Kleiser',
-		year: 1978,
-		imgUrl: 'https://images.alphacoders.com/467/thumb-1920-467378.jpg',
+		title: 'Captain America: Civil War',
+		description: 'The events of the Age of Ultron left an imprint on the world, the collective governments of the world pass an act designed to regulate all superhuman activity. This polarizes opinion amongst the Avengers, causing two factions to side with Iron Man or Captain America, which causes an epic battle between former allies.',
+		director: 'Joe Russo, Anthony Russo',
+		year: 2016,
+		imgUrl: 'https://www.enter.co/wp-content/uploads/2016/05/12932562_1145757265455179_2814442460314979285_n-660x432.jpg',
 		coincidence: 20,
 		duration: '2h 3min'
 	}

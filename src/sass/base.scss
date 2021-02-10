@@ -1,3 +1,7 @@
+@import 'src/sass/utils/mixins';
+@import 'src/sass/variables/global-variables';
+@import 'src/sass/animations/fade.animations';
+
 * {
   margin: 0;
   padding: 0;
@@ -19,7 +23,9 @@ body {
   -ms-user-select: none;
   user-select: none;
   cursor: default;
+  @include hideScrollbar();
 }
+
 ul li {
   list-style: none;
 }

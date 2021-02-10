@@ -1,13 +1,25 @@
+@import 'src/sass/variables/sizes';
+
+
 .container {
   position: relative;
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  padding: 0 var(--horizontal-padding);
+
+  overflow: hidden;
 
   .backArrow, .forwardsArrow {
     position: absolute;
-    top: 0;
-    z-index: 1;
-    background: rgba(20, 20, 20, .1);
-    height: 100%;
+    top: 50%;
+    height: $card-height;
     width: 50px;
+
+    z-index: 1;
+    transform: translateY(-50%);
+    background: rgba(20, 20, 20, .1);
 
     svg {
       width: 24px;
@@ -16,7 +28,7 @@
 
     &:hover {
       background: rgba(20, 20, 20, .5);
-      transition: fill 0.01s;
+
       svg {
         fill: white;
       }
@@ -25,9 +37,11 @@
 
   .backArrow {
     left: 0;
+
     svg {
       transform: rotate(180deg);
     }
+
     &:hover {
       svg {
         transform: scale(1.4) rotate(180deg);

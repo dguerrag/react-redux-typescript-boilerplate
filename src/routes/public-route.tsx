@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { ReactNode, ReactNodeArray } from 'react';
 import { Route } from 'react-router-dom';
 
-export const PublicRoute = ({children, ...rest}: any) => (
+
+export type RouteProps = {
+	children?: ReactNode | ReactNodeArray;
+	[rest: string]: any;
+}
+export const PublicRoute = ({children, ...rest}: RouteProps) => (
 	<Route {...rest}>
 		{children}
 	</Route>

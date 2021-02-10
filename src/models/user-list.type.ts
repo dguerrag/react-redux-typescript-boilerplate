@@ -1,8 +1,8 @@
 import { Movie } from './movie.type';
 import { Series } from './series.type';
-import { CardType } from './enums';
+import { CardType } from '../constants/enums';
 
-export type UserList = {
+export type UserListElement = {
 	item: Movie | Series;
 	type: CardType;
 }
