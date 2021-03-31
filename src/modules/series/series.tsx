@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import styles from './series.module.scss';
 import { Card } from '../../components/card/card';
-import { CardType } from '../../constants/enums';
 import { useSeriesReducerSeries } from './store/series.reducer';
 import { useDispatch } from 'react-redux';
 import { requestSeries } from './store/series.actions';
@@ -19,10 +18,7 @@ export const SeriesLayout = () => {
 
 	return (
 		<Fade className={styles.container}>
-			{series.map(movie => <Card key={movie.id}
-									   item={movie}
-									   type={CardType.Series}/>
-			)}
+			{series.map(movie => <Card key={movie.id} item={movie}/>)}
 		</Fade>
 	);
 };

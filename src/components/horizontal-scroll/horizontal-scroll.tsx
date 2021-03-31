@@ -5,7 +5,6 @@ import { Sizes } from '../../constants/sizes';
 
 
 // This component is not an example, it was just for fun.
-
 type HorizontalScrollProps = {
 	className: string | undefined;
 	height: number;

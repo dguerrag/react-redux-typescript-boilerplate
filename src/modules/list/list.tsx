@@ -19,9 +19,7 @@ export const List = () => {
 	return (
 		<Fade className={styles.container}>
 			{list.map((item, i) =>
-				<Card key={i}
-					  item={item.item}
-					  type={item.type}/>
+				<Card key={i} item={item}/>
 			)}
 		</Fade>
 	);

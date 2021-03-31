@@ -1,10 +1,12 @@
 @import 'src/sass/variables/sizes';
+@import 'src/sass/variables/colors';
+
+$animation-timing: 0.2s;
 
 .container {
   position: relative;
   width: $card-width;
   height: $card-height;
-  background: black;
 
   cursor: pointer;
   flex-shrink: 0;
@@ -14,23 +16,31 @@
     z-index: 2;
     display: flex;
     flex-direction: column;
-    height: auto;
-    background: black;
-    transition: opacity 0s;
-    transform: translate(calc(-50% + #{$card-width} / 2), -$card-height);
+    transition: 1s all, 0s opacity;
+
+    .img {
+      width: 100%;
+    }
+
+    border: 1px solid $border;
   }
 
   .hover {
-    transform: translate(calc(-50% + #{$card-width} / 2), calc(-50% + #{$card-height} / 2));
+    animation: hover-in $animation-timing linear forwards;
+    $height: calc(#{$card-height * 1.15} - #{$card-down-info-height} / 2);
+    transform: translate(calc(-50% + #{$card-width} / 2), calc(-50% + #{$height} / 2));
+
+    .info {
+      animation: info-in $animation-timing linear forwards;
+    }
 
     .img {
-      width: calc(#{$card-width} * 1.15);
-      height: calc(#{$card-height} * 1.15);
+      height: calc(#{$card-height * 1.15});
     }
   }
 
   &:not(:last-child) {
-    margin-right: var(--card-margin);
+    margin-right: $card-margin;
   }
 
   .logo {
@@ -40,30 +50,31 @@
     width: 20px;
   }
 
-  .img, .placeholder {
+  .img {
     width: $card-width;
     height: $card-height;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
   }
 
   .info {
-    display: flex;
     flex-direction: column;
-    background: #181818;
-    padding: 16px;
+    background: $info-background;
     font-size: 16px;
 
-    height: $card-down-info-height;
-    
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+
     .innerInfo {
       display: flex;
       flex-direction: row;
     }
+
     .coincidence {
       display: inline-block;
-      color: #46D369;
+      color: $green-text;
       font-weight: 700;
       margin-right: 12px;
     }
@@ -71,7 +82,7 @@
     .icon {
       width: 48px;
       height: 48px;
-      border: 1px solid rgba(white, 0.5);
+      border: 1px solid $border;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -83,15 +94,37 @@
         height: 24px;
         fill: rgba(white, 0.5);
       }
+
       &:hover {
         border: 1px solid white;
+
         svg {
           fill: white;
         }
       }
+
       &:active {
         transform: translateY(2px);
       }
     }
+  }
+}
+
+@keyframes hover-in {
+  0% {
+    width: $card-width;
+    height: $card-height;
+  }
+  100% {
+    width: calc(#{$card-width} * 1.15);
+    height: calc(#{$card-height * 1.15} + #{$card-down-info-height});
+  }
+}
+
+@keyframes info-in {
+  to {
+    display: flex;
+    height: $card-down-info-height;
+    padding: 16px;
   }
 }

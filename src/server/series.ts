@@ -1,8 +1,10 @@
 import { Series } from '../models/series.type';
+import { CardType } from '../constants/enums';
 
 export const series: Series[] = [
 	{
 		id: 1,
+		type: CardType.Series,
 		title: 'Game of Thrones',
 		description: '',
 		director: '',
@@ -22,6 +24,7 @@ export const series: Series[] = [
 	},
 	{
 		id: 2,
+		type: CardType.Series,
 		title: 'The Walking Dead',
 		description: '',
 		director: '',
@@ -44,6 +47,7 @@ export const series: Series[] = [
 	},
 	{
 		id: 3,
+		type: CardType.Series,
 		title: 'Handmaid\'s Tale',
 		description: '',
 		director: '',
@@ -58,6 +62,7 @@ export const series: Series[] = [
 	},
 	{
 		id: 4,
+		type: CardType.Series,
 		title: 'Vikings',
 		description: '',
 		director: '',
@@ -75,6 +80,7 @@ export const series: Series[] = [
 	},
 	{
 		id: 5,
+		type: CardType.Series,
 		title: 'Devs',
 		description: '',
 		director: '',
@@ -87,6 +93,7 @@ export const series: Series[] = [
 	},
 	{
 		id: 6,
+		type: CardType.Series,
 		title: 'Sherlock Holmes',
 		description: '',
 		director: '',
@@ -102,6 +109,7 @@ export const series: Series[] = [
 	},
 	{
 		id: 7,
+		type: CardType.Series,
 		title: 'How I met your mother',
 		description: '',
 		director: '',
@@ -122,6 +130,7 @@ export const series: Series[] = [
 	},
 	{
 		id: 8,
+		type: CardType.Series,
 		title: 'Big Bang Theory',
 		description: '',
 		director: '',
@@ -142,6 +151,7 @@ export const series: Series[] = [
 	},
 	{
 		id: 9,
+		type: CardType.Series,
 		title: 'Modern Family',
 		description: '',
 		director: '',
@@ -163,6 +173,7 @@ export const series: Series[] = [
 	},
 	{
 		id: 10,
+		type: CardType.Series,
 		title: 'Years and Years',
 		description: '',
 		director: '',
@@ -175,6 +186,7 @@ export const series: Series[] = [
 	},
 	{
 		id: 11,
+		type: CardType.Series,
 		title: 'Black Mirror',
 		description: '',
 		director: '',
@@ -191,6 +203,7 @@ export const series: Series[] = [
 	},
 	{
 		id: 12,
+		type: CardType.Series,
 		title: 'Stranger Things',
 		description: '',
 		director: '',
@@ -205,6 +218,7 @@ export const series: Series[] = [
 	},
 	{
 		id: 13,
+		type: CardType.Series,
 		title: 'Spartacus',
 		description: '',
 		director: '',
@@ -220,6 +234,7 @@ export const series: Series[] = [
 	},
 	{
 		id: 14,
+		type: CardType.Series,
 		title: 'The Witcher',
 		description: '',
 		director: '',
@@ -232,6 +247,7 @@ export const series: Series[] = [
 	},
 	{
 		id: 15,
+		type: CardType.Series,
 		title: 'Prison Break',
 		description: '',
 		director: '',

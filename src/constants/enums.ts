@@ -1,4 +1,5 @@
 export enum CardType {
 	Movie = 'movie',
-	Series = 'series'
+	Series = 'series',
+	Favorites = 'favorites'
 }

@@ -1,5 +1,7 @@
-# React App example  using Typescript 
+# React App example  using Typescript
+
 ## Contents:
+
     - React router v5 examples
     - Basic React app wihout redux
         - Call Api to fetch data
@@ -10,19 +12,23 @@
         - Redux-saga middleware
         - (Soon) Example with redux-toolkit
     - (soon) testing example
-    
+
 ### Where do you find this examples?
+
     - branch: basic-react
     - branch: redux-saga
     - (soon): branch: redux-toolkit
 
+#### "Known issues"
+
+    - I know there are a lot of abstractions that could be done in "actions/sagas/reducers" 
+    but I thought of leaving it simple to make it more readable for newbies 
 
 ![GIF](https://media.giphy.com/media/l0Exi8cyEMxc3OGFa/giphy.gif)
 
-### I would appreciate Feedback ^^ 
+### I would appreciate Feedback ^^
 
-![GIF](https://media.giphy.com/media/aMzFQ7nULrguA/giphy.gif) 
-
+![GIF](https://media.giphy.com/media/aMzFQ7nULrguA/giphy.gif)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

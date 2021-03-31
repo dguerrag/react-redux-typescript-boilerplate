@@ -18,29 +18,29 @@ export type RequestList = {
 
 export type ReceiveList = {
 	type: ListActionTypes.RECEIVE_LIST;
-	list: UserListElement[];
+	list: UserListElement;
 }
 
 export type RequestAddItemToList = {
 	type: ListActionTypes.REQUEST_ADD_ITEM;
 	item: Movie | Series;
-	itemType: CardType;
 }
 
 export type ReceiveAddItemToList = {
 	type: ListActionTypes.RECEIVE_ADD_ITEM;
 	item: Movie | Series;
-	itemType: CardType;
 }
 
 export type RequestRemoveItemFromList = {
 	type: ListActionTypes.REQUEST_REMOVE_ITEM;
-	id: string | number;
+	id: number;
+	itemType: CardType;
 }
 
 export type ReceiveRemoveItemFromList = {
 	type: ListActionTypes.RECEIVE_REMOVE_ITEM;
-	id: string | number;
+	id: number;
+	itemType: CardType;
 }
 
 export type ListActions =
@@ -52,22 +52,22 @@ export type ListActions =
 	ReceiveRemoveItemFromList;
 
 export const requestList = (): ListActions => ({type: ListActionTypes.REQUEST_LIST});
-export const receiveList = (list: UserListElement[]): ListActions => ({type: ListActionTypes.RECEIVE_LIST, list});
-export const requestAddItemList = (item: Movie | Series, itemType: CardType): ListActions => ({
+export const receiveList = (list: UserListElement): ListActions => ({type: ListActionTypes.RECEIVE_LIST, list});
+export const requestAddItemList = (item: Movie | Series): ListActions => ({
 	type: ListActionTypes.REQUEST_ADD_ITEM,
-	item,
-	itemType
+	item
 });
-export const receiveAddItemList = (item: Movie | Series, itemType: CardType): ListActions => ({
+export const receiveAddItemList = (item: Movie | Series): ListActions => ({
 	type: ListActionTypes.RECEIVE_ADD_ITEM,
-	item,
+	item
+});
+export const requestRemoveItemFromList = (id: number, itemType: CardType): ListActions => ({
+	type: ListActionTypes.REQUEST_REMOVE_ITEM,
+	id,
 	itemType
 });
-export const requestRemoveItemFromList = (id: string | number): ListActions => ({
-	type: ListActionTypes.REQUEST_REMOVE_ITEM,
-	id
-});
-export const receiveRemoveItemFromList = (id: string | number): ListActions => ({
+export const receiveRemoveItemFromList = (id: number, itemType: CardType): ListActions => ({
 	type: ListActionTypes.RECEIVE_REMOVE_ITEM,
-	id
+	id,
+	itemType
 });

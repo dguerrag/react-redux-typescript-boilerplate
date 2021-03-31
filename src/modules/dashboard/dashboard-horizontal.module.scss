@@ -1,0 +1,22 @@
+@import 'src/sass/utils/mixins';
+@import 'src/sass/variables/sizes';
+@import 'src/sass/components/container';
+
+.container {
+  .title {
+    font-size: 1.4vw;
+    color: #E5E5E5;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-left: $horizontal-padding;
+    transform: translateY(30px);
+  }
+
+  .row {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    min-width: 100%;
+  }
+
+}

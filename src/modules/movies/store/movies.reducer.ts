@@ -6,6 +6,7 @@ import { State } from '../../../store/store';
 export type MoviesStateType = {
 	movies: Movie[];
 	movie: Movie | null;
+	[favorite: number]: boolean;
 }
 
 const moviesInitialState: MoviesStateType = {
@@ -19,6 +20,14 @@ export const moviesReducer = (state = moviesInitialState, action: MovieActions):
 			return {...state, movies: action.movies};
 		case MovieActionTypes.RECEIVE_MOVIE_ID:
 			return {...state, movie: action.movie};
+		case MovieActionTypes.ADD_FAVORITE:
+			return {
+				...state, [action.id]: true
+			};
+		case MovieActionTypes.REMOVE_FAVORITE:
+			return {
+				...state, [action.id]: false
+			};
 		default:
 			return state;
 	}

@@ -6,6 +6,7 @@ import { Series } from '../../../models/series.type';
 export type SeriesStateType = {
 	series: Series[];
 	serie: Series | null;
+	[favorite: number]: boolean;
 }
 
 const seriesInitialState: SeriesStateType = {
@@ -19,6 +20,12 @@ export const seriesReducer = (state = seriesInitialState, action: SeriesActions)
 			return {...state, series: action.series};
 		case SeriesActionTypes.RECEIVE_SERIES_ID:
 			return {...state, serie: action.serie};
+		case SeriesActionTypes.ADD_FAVORITE:
+			return {...state, [action.id]: true};
+		case SeriesActionTypes.REMOVE_FAVORITE:
+			return {
+				...state, [action.id]: false
+			};
 		default:
 			return state;
 	}

@@ -1,15 +1,18 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { SagaIterator } from '@redux-saga/core';
 import { addElementToList, getUserList, removeElementFromList } from '../../../api/user-list.api';
 import {
 	ListActionTypes,
 	receiveAddItemList,
 	receiveList,
 	receiveRemoveItemFromList,
-	RequestAddItemToList, RequestRemoveItemFromList
+	RequestAddItemToList,
+	RequestRemoveItemFromList
 } from './list.actions';
+import { CardType } from '../../../constants/enums';
+import { addFavoriteMovie, removeFavoriteMovie } from '../../movies/store/movies.actions';
+import { addFavoriteSeries, removeFavoriteSeries } from '../../series/store/series.actions';
 
-function* requestListEffect(): SagaIterator {
+function* requestListEffect() {
 	try {
 		const list = yield call(getUserList);
 		yield put(receiveList(list));
@@ -18,21 +21,31 @@ function* requestListEffect(): SagaIterator {
 	}
 }
 
-function* requestAddItemToList(action: RequestAddItemToList): SagaIterator {
+function* requestAddItemToList(action: RequestAddItemToList) {
 	try {
-		const {item, itemType} = action;
-		yield call(addElementToList, item, itemType);
-		yield put(receiveAddItemList(item, itemType));
+		const {item} = action;
+		yield call(addElementToList, item);
+		yield put(receiveAddItemList(item));
+		if (item.type === CardType.Movie) {
+			yield put(addFavoriteMovie(item.id));
+		} else {
+			yield put(addFavoriteSeries(item.id));
+		}
 	} catch (e) {
 		console.error(e);
 	}
 }
 
-function* requestRemoveItemFromList(action: RequestRemoveItemFromList): SagaIterator {
+function* requestRemoveItemFromList(action: RequestRemoveItemFromList) {
 	try {
 		const {id} = action;
 		yield call(removeElementFromList, id);
-		yield put(receiveRemoveItemFromList(id));
+		yield put(receiveRemoveItemFromList(id, action.itemType));
+		if (action.itemType === CardType.Movie) {
+			yield put(removeFavoriteMovie(id));
+		} else {
+			yield put(removeFavoriteSeries(id));
+		}
 	} catch (e) {
 		console.error(e);
 	}
