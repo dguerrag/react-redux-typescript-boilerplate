@@ -1,7 +1,6 @@
-import { Movie } from '../../../models/movie.type';
+import React, { createContext, useReducer } from 'react';
+import { Movie } from '../../models/movie.type';
 import { MovieActions, MovieActionTypes } from './movies.actions';
-import { useSelector } from 'react-redux';
-import { State } from '../../../store/store';
 
 export type MoviesStateType = {
 	movies: Movie[];
@@ -9,12 +8,12 @@ export type MoviesStateType = {
 	[favorite: number]: boolean;
 }
 
-const moviesInitialState: MoviesStateType = {
+const moviesInitialState: any = {
 	movies: [],
 	movie: null
 };
 
-export const moviesReducer = (state = moviesInitialState, action: MovieActions): MoviesStateType => {
+export const moviesReducer = (state: MoviesStateType, action: MovieActions): MoviesStateType => {
 	switch (action.type) {
 		case MovieActionTypes.RECEIVE_MOVIES:
 			return {...state, movies: action.movies};
@@ -33,7 +32,10 @@ export const moviesReducer = (state = moviesInitialState, action: MovieActions):
 	}
 };
 
-export const moviesSelector = (state: State) => state.moviesReducer.movies;
-export const useMoviesReducerMovies = () => useSelector(moviesSelector);
-export const useMoviesReducerSelectedMovie = () => useSelector((state: State) => state.moviesReducer.movie);
+export const MoviesContext = createContext<[MoviesStateType, Function]>(moviesInitialState);
 
+export const MoviesContextProvider = ({children}: any) => (
+	<MoviesContext.Provider value={useReducer(moviesReducer, moviesInitialState)}>
+		{children}
+	</MoviesContext.Provider>
+);

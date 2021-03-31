@@ -1,4 +1,4 @@
-import { Movie } from '../../../models/movie.type';
+import { Movie } from '../../models/movie.type';
 
 export enum MovieActionTypes {
 	REQUEST_MOVIES = '[Movies] get movies request',

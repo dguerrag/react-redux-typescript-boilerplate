@@ -4,22 +4,21 @@ import { NavLink } from 'react-router-dom';
 import { Routes } from '../../routes/routes.types';
 import NetflixLogo from '../../assets/images/netflix_logo.svg';
 import { Arrow } from '../../assets/images/arrow';
-import { useDispatch } from 'react-redux';
-import { goBack } from 'connected-react-router';
-import { useRouterReducerLocation } from '../../store/router.reducer';
+import { useHistory, useLocation } from 'react-router-dom';
 
 export const Header = () => {
-	const dispatch = useDispatch();
-	const {pathname} = useRouterReducerLocation();
 	const [showBack, setShowBack] = useState(false);
 
+	const history = useHistory();
+	const location = useLocation();
+
+
 	useEffect(() => {
-		setShowBack(pathname !== Routes.DASHBOARD);
-	}, [pathname]);
+		setShowBack(location.pathname !== Routes.DASHBOARD);
+	}, [location.pathname]);
 
 	const navigateBack = () => {
-		// Example of how to navigate back to browse history using redux
-		dispatch(goBack());
+		history.goBack();
 	};
 
 	return (

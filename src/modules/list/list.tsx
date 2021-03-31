@@ -1,20 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import styles from './list.module.scss';
 import { Card } from '../../components/card/card';
-import { useListReducerList } from './store/list.reducer';
-import { useDispatch } from 'react-redux';
-import { requestList } from './store/list.actions';
+import { ListActionTypes } from './list.actions';
 import { Fade } from '../../components/Fade';
+import { FavoritesContext } from './list.context';
+import { getUserList } from '../../api/user-list.api';
 
 export const List = () => {
-	const dispatch = useDispatch();
-	const list = useListReducerList();
+	const [{list}, dispatch] = useContext(FavoritesContext);
 
 	useEffect(() => {
-		if (!list.length) {
-			dispatch(requestList());
-		}
-	}, [list, dispatch]);
+		// fetch data on component first load
+		getUserList().then(list => {
+			dispatch({type: ListActionTypes.RECEIVE_LIST, list});
+		});
+	}, [dispatch]);
 
 	return (
 		<Fade className={styles.container}>

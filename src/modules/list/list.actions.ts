@@ -1,7 +1,7 @@
-import { UserListElement } from '../../../models/user-list.type';
-import { CardType } from '../../../constants/enums';
-import { Movie } from '../../../models/movie.type';
-import { Series } from '../../../models/series.type';
+import { UserListElement } from '../../models/user-list.type';
+import { CardType } from '../../constants/enums';
+import { Movie } from '../../models/movie.type';
+import { Series } from '../../models/series.type';
 
 export enum ListActionTypes {
 	REQUEST_LIST = '[List] get list request',
@@ -40,7 +40,6 @@ export type RequestRemoveItemFromList = {
 export type ReceiveRemoveItemFromList = {
 	type: ListActionTypes.RECEIVE_REMOVE_ITEM;
 	id: number;
-	itemType: CardType;
 }
 
 export type ListActions =
@@ -66,8 +65,7 @@ export const requestRemoveItemFromList = (id: number, itemType: CardType): ListA
 	id,
 	itemType
 });
-export const receiveRemoveItemFromList = (id: number, itemType: CardType): ListActions => ({
+export const receiveRemoveItemFromList = (id: number): ListActions => ({
 	type: ListActionTypes.RECEIVE_REMOVE_ITEM,
-	id,
-	itemType
+	id
 });

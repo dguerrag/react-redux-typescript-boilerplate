@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import styles from './card.module.scss';
 import { Movie } from '../../models/movie.type';
 import { Series } from '../../models/series.type';
-import { useListReducerIsFavoriteMovie } from '../../modules/list/store/list.reducer';
 import { CardHover } from './components/card-hover';
 import { CardLogo } from './components/card-logo';
 
@@ -16,7 +15,7 @@ type CardProps = {
 }
 export const Card = ({item}: CardProps) => {
 	const [hover, setHover] = useState(false);
-	const isFavorite = useListReducerIsFavoriteMovie(item.id, item.type);
+	const isFavorite = false;
 
 	return (
 		<div className={styles.container}

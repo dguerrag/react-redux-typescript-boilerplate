@@ -1,21 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './movies.module.scss';
 import { useParams } from 'react-router-dom';
 import { Card } from '../../components/card/card';
-import { useDispatch } from 'react-redux';
-import { useMoviesReducerSelectedMovie } from './store/movies.reducer';
-import { requestMovieById } from './store/movies.actions';
 import { Fade } from '../../components/Fade';
+import { Movie } from '../../models/movie.type';
+import { getMovieById } from '../../api/movies.api';
 
 
 export const MoviesDetail = () => {
-	const dispatch = useDispatch();
 	const {id} = useParams<{ id: string }>();
-	const movie = useMoviesReducerSelectedMovie();
+	const [movie, setMovie]: [Movie | undefined, Function] = useState();
 
 	useEffect(() => {
-		dispatch(requestMovieById(Number(id)));
-	}, [dispatch, id]);
+		getMovieById(Number(id)).then((res) => setMovie(res));
+	}, [id]);
 
 	return (
 		<>

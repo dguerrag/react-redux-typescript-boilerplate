@@ -1,4 +1,4 @@
-import { Series } from '../../../models/series.type';
+import { Series } from '../../models/series.type';
 
 export enum SeriesActionTypes {
 	REQUEST_SERIES = '[Series] get series request',

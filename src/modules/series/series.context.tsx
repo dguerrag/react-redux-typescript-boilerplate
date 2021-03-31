@@ -1,7 +1,6 @@
+import { Series } from '../../models/series.type';
 import { SeriesActions, SeriesActionTypes } from './series.actions';
-import { useSelector } from 'react-redux';
-import { State } from '../../../store/store';
-import { Series } from '../../../models/series.type';
+import React, { createContext, useReducer } from 'react';
 
 export type SeriesStateType = {
 	series: Series[];
@@ -9,12 +8,12 @@ export type SeriesStateType = {
 	[favorite: number]: boolean;
 }
 
-const seriesInitialState: SeriesStateType = {
+const seriesInitialState: any = {
 	series: [],
 	serie: null
 };
 
-export const seriesReducer = (state = seriesInitialState, action: SeriesActions): SeriesStateType => {
+export const seriesReducer = (state: SeriesStateType, action: SeriesActions): SeriesStateType => {
 	switch (action.type) {
 		case SeriesActionTypes.RECEIVE_SERIES:
 			return {...state, series: action.series};
@@ -31,7 +30,10 @@ export const seriesReducer = (state = seriesInitialState, action: SeriesActions)
 	}
 };
 
-export const seriesSelector = (state: State) => state.seriesReducer.series;
-export const useSeriesReducerSeries = () => useSelector(seriesSelector);
-export const useSeriesReducerSelectedSeries = () => useSelector((state: State) => state.seriesReducer.serie);
+export const SeriesContext = createContext<[SeriesStateType, Function]>(seriesInitialState);
 
+export const SeriesContextProvider = ({children}: any) => (
+	<SeriesContext.Provider value={useReducer(seriesReducer, seriesInitialState)}>
+		{children}
+	</SeriesContext.Provider>
+);

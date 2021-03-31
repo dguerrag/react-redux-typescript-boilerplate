@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Movie } from '../../../models/movie.type';
 import { Series } from '../../../models/series.type';
 import styles from '../card.module.scss';
 import { Checked } from '../../../assets/images/checked';
 import { Plus } from '../../../assets/images/plus';
-import { requestAddItemList, requestRemoveItemFromList } from '../../../modules/list/store/list.actions';
+import { receiveAddItemList, receiveRemoveItemFromList } from '../../../modules/list/list.actions';
 import { CardType } from '../../../constants/enums';
 import { Routes } from '../../../routes/routes.types';
-import { push } from 'connected-react-router';
-import { useDispatch } from 'react-redux';
 import { CardLogo } from './card-logo';
+import { addElementToList, removeElementFromList } from '../../../api/user-list.api';
+import { FavoritesContext } from '../../../modules/list/list.context';
+import { useHistory } from 'react-router-dom';
 
 
 type CardHoverProps = {
@@ -17,14 +18,20 @@ type CardHoverProps = {
 	isFavorite: boolean;
 }
 export const CardHover = ({item, isFavorite}: CardHoverProps) => {
-	const dispatch = useDispatch();
+	const history = useHistory();
 
-	const addItemToFavorite = () => {
-		dispatch(requestAddItemList(item));
+	// const [state, dispatchFavorite] = useContext(FavoritesContext);
+
+	const addItemToFavorite = async () => {
+		await addElementToList(item);
+		// dispatchFavorite(receiveAddItemList(item));
+		// dispatch(requestAddItemList(item));
 	};
 
-	const removeItemFromFavorite = (id: number) => {
-		dispatch(requestRemoveItemFromList(id, item.type));
+	const removeItemFromFavorite = async (id: number) => {
+		await removeElementFromList(id);
+		// dispatchFavorite(receiveRemoveItemFromList(id));
+		// dispatch(requestRemoveItemFromList(id, item.type));
 	};
 
 	const getDuration = () => {
@@ -36,7 +43,7 @@ export const CardHover = ({item, isFavorite}: CardHoverProps) => {
 
 	const navigateToDetail = () => {
 		const baseUrl = item.type === CardType.Movie ? Routes.MOVIES : Routes.SERIES;
-		dispatch(push(`${baseUrl}/${item.id}`));
+		history.push(`${baseUrl}/${item.id}`);
 	};
 
 	return (
