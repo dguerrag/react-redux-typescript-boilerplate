@@ -3,7 +3,6 @@ import styles from './movies.module.scss';
 import { Movie } from '../../models/movie.type';
 import { getMovies } from '../../api/movies.api';
 import { Card } from '../../components/card/card';
-import { CardType } from '../../models/enums';
 import { Fade } from '../../components/Fade';
 
 export const Movies = () => {
@@ -17,10 +16,7 @@ export const Movies = () => {
 
 	return (
 		<Fade className={styles.container}>
-			{movies.map(movie => <Card key={movie.id}
-									   item={movie}
-									   type={CardType.Movie}/>
-			)}
+			{movies.map(movie => <Card key={movie.id} item={movie}/>)}
 		</Fade>
 	);
 };

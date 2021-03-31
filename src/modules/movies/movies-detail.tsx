@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 import { getMovieById } from '../../api/movies.api';
 import { Movie } from '../../models/movie.type';
 import { Card } from '../../components/card/card';
-import { CardType } from '../../models/enums';
 import { Fade } from '../../components/Fade';
 
 
@@ -20,7 +19,7 @@ export const MoviesDetail = () => {
 		<>
 			{movie &&
 			<Fade className={styles.container}>
-				<Card item={movie} type={CardType.Movie}/>
+				<Card item={movie}/>
 			</Fade>
 			}
 		</>

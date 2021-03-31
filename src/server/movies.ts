@@ -1,8 +1,10 @@
 import { Movie } from '../models/movie.type';
+import { CardType } from '../constants/enums';
 
 export const movies: Movie[] = [
 	{
 		id: 2,
+		type: CardType.Movie,
 		title: 'Avengers: Infinity War',
 		description: 'The Avengers and their allies must be willing to sacrifice all in an attempt to defeat the powerful Thanos before his blitz of devastation and ruin puts an end to the universe.',
 		director: 'Joe Russo, Anthony Russo',
@@ -13,6 +15,7 @@ export const movies: Movie[] = [
 	},
 	{
 		id: 3,
+		type: CardType.Movie,
 		title: 'Avengers: Endgame',
 		description: 'After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos\' actions and restore balance to the universe.',
 		director: 'Joe Russo, Anthony Russo',
@@ -23,6 +26,7 @@ export const movies: Movie[] = [
 	},
 	{
 		id: 4,
+		type: CardType.Movie,
 		title: 'Ready Player One',
 		description: 't takes place in 2045, when much of humanity uses the virtual reality software OASIS (Ontologically Anthropocentric Sensory Immersive Simulation) to escape the desolation of the real world. Orphaned teenager Wade Watts (Sheridan) finds clues to a hidden game that promises OASIS\'s ownership to the winner, and he and four allies try to complete it before a corporation run by businessman Nolan Sorrento (Mendelsohn) can do so.',
 		director: 'Steven Spielberg',
@@ -33,6 +37,7 @@ export const movies: Movie[] = [
 	},
 	{
 		id: 5,
+		type: CardType.Movie,
 		title: 'How to Train Your Dragon: The Hidden World',
 		description: 'When Hiccup discovers Toothless isn\'t the only Night Fury, he must seek "The Hidden World", a secret Dragon Utopia before a hired tyrant named Grimmel finds it first.',
 		director: 'Dean DeBlois',
@@ -43,6 +48,7 @@ export const movies: Movie[] = [
 	},
 	{
 		id: 6,
+		type: CardType.Movie,
 		title: 'The Lion King',
 		description: 'After the murder of his father, a young lion prince flees his kingdom only to learn the true meaning of responsibility and bravery.',
 		director: 'Jon Favreau',
@@ -53,6 +59,7 @@ export const movies: Movie[] = [
 	},
 	{
 		id: 7,
+		type: CardType.Movie,
 		title: 'Avatar',
 		description: 'A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.',
 		director: 'James Cameron',
@@ -63,6 +70,7 @@ export const movies: Movie[] = [
 	},
 	{
 		id: 8,
+		type: CardType.Movie,
 		title: 'Coco',
 		description: 'Aspiring musician Miguel, confronted with his family\'s ancestral ban on music, enters the Land of the Dead to find his great-great-grandfather, a legendary singer.',
 		director: 'Lee Unkrich',
@@ -73,6 +81,7 @@ export const movies: Movie[] = [
 	},
 	{
 		id: 9,
+		type: CardType.Movie,
 		title: 'The Lord of the Rings: The Fellowship of the Ring',
 		description: '"One ring to rule them all, One ring to find them. One ring to bring them all and in the darkness bind them." In this part of the trilogy, the young Hobbit Frodo Baggins inherits a ring; but this ring is no mere trinket. It is the One Ring, an instrument of absolute power that could allow Sauron, the dark Lord of Mordor, to rule Middle-earth and enslave its peoples. Frodo, together with a Fellowship that includes his loyal Hobbit friends, Humans, a Wizard, a Dwarf and an Elf, must take the One Ring across Middle-earth to Mount Doom, where it first was forged, and destroy it forever. Such a journey means venturing deep into territory manned by Sauron, where he is amassing his army of Orcs. And it is not only external evils that the Fellowship must combat, but also internal dissension and the corrupting influence of the One Ring itself. The course of future history is entwined with the fate of the Fellowship.',
 		director: 'Peter Jackson',
@@ -83,6 +92,7 @@ export const movies: Movie[] = [
 	},
 	{
 		id: 10,
+		type: CardType.Movie,
 		title: 'Frozen II',
 		description: 'Anna, Elsa, Kristoff, Olaf and Sven leave Arendelle to travel to an ancient, autumn-bound forest of an enchanted land. They set out to find the origin of Elsa\'s powers in order to save their kingdom.',
 		director: 'Jennifer Lee, Chris Buck',
@@ -93,6 +103,7 @@ export const movies: Movie[] = [
 	},
 	{
 		id: 11,
+		type: CardType.Movie,
 		title: 'The Hobbit: An Unexpected Journey',
 		description: 'Bilbo Baggins, a Hobbit, journeys to the Lonely Mountain accompanied by a group of dwarves to reclaim a treasure taken from them by the dragon Smaug. Bilbo is swept into an epic quest to reclaim the lost Dwarf Kingdom of Erebor, which was long ago conquered by the dragon Smaug. Approached out of the blue by the wizard Gandalf the Grey, Bilbo finds himself joining a company of thirteen dwarves led by the legendary warrior Thorin Oakenshield. Although their goal lies to the East and the wastelands of the Lonely Mountain, first they must escape the goblin tunnels, where Bilbo meets the creature that will change his life forever... Gollum. Here, alone with Gollum, on the shores of an underground lake, the unassuming Bilbo Baggins not only discovers depths ofguile and courage that surprise even him, he also gains possession of Gollum\'s "precious" ...a simple, gold ring that is tied to the fate of all Middle-earth in ways Bilbo cannot begin to know.',
 		director: 'Peter Jackson',
@@ -103,6 +114,7 @@ export const movies: Movie[] = [
 	},
 	{
 		id: 12,
+		type: CardType.Movie,
 		title: 'Doctor Strange',
 		description: 'While on a journey of physical and spiritual healing, a brilliant neurosurgeon is drawn into the world of the mystic arts.',
 		director: 'Scott Derrickson',
@@ -113,6 +125,7 @@ export const movies: Movie[] = [
 	},
 	{
 		id: 13,
+		type: CardType.Movie,
 		title: 'The Hunger Games',
 		description: 'Katniss Everdeen voluntarily takes her younger sister\'s place in the Hunger Games: a televised competition in which two teenagers from each of the twelve Districts of Panem are chosen at random to fight to the death.',
 		director: 'Gary Ross',
@@ -123,6 +136,7 @@ export const movies: Movie[] = [
 	},
 	{
 		id: 14,
+		type: CardType.Movie,
 		title: 'The Theory of Everything',
 		description: 'A look at the relationship between the famous physicist Stephen Hawking and his wife.',
 		director: 'James Marsh',
@@ -133,6 +147,7 @@ export const movies: Movie[] = [
 	},
 	{
 		id: 15,
+		type: CardType.Movie,
 		title: 'Gladiator',
 		description: 'A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.',
 		director: 'Ridley Scott',
@@ -143,6 +158,7 @@ export const movies: Movie[] = [
 	},
 	{
 		id: 1,
+		type: CardType.Movie,
 		title: 'Captain America: Civil War',
 		description: 'The events of the Age of Ultron left an imprint on the world, the collective governments of the world pass an act designed to regulate all superhuman activity. This polarizes opinion amongst the Avengers, causing two factions to side with Iron Man or Captain America, which causes an epic battle between former allies.',
 		director: 'Joe Russo, Anthony Russo',

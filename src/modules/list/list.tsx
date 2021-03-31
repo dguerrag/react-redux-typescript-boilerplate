@@ -6,7 +6,7 @@ import { UserListElement } from '../../models/user-list.type';
 import { Fade } from '../../components/Fade';
 
 export const List = () => {
-	const [list, setList]: [UserListElement[], Function] = useState([]);
+	const [list, setList]: [UserListElement, Function] = useState([]);
 
 	useEffect(() => {
 		getUserList().then(res => {
@@ -17,9 +17,7 @@ export const List = () => {
 	return (
 		<Fade className={styles.container}>
 			{list.map((item, i) =>
-				<Card key={i}
-					  item={item.item}
-					  type={item.type}/>
+				<Card key={i} item={item}/>
 			)}
 		</Fade>
 	);

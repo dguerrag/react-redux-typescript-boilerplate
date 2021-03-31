@@ -1,6 +1,6 @@
 @import 'src/sass/utils/mixins';
-@import 'src/sass/variables/global-variables';
 @import 'src/sass/animations/fade.animations';
+@import 'src/sass/variables/colors';
 
 * {
   margin: 0;
@@ -11,7 +11,7 @@
 }
 
 body {
-  background: #141414;
+  background: $main-background;
   color: #fff;
   font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 10px;

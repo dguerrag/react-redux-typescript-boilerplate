@@ -1,0 +1,22 @@
+@import 'src/sass/variables/sizes';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  .title {
+    font-size: 1.4vw;
+    color: #E5E5E5;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: $horizontal-padding;
+  }
+
+  .items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+}

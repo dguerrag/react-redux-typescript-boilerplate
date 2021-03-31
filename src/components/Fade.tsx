@@ -1,10 +1,5 @@
-import React, {
-	ReactNodeArray,
-	forwardRef,
-	useEffect,
-	useState,
-	Ref, ReactNode
-} from 'react';
+import React, { CSSProperties, forwardRef, ReactNode, ReactNodeArray, Ref, useEffect, useState } from 'react';
+
 
 type FadePropTypes = {
 	show?: boolean;
@@ -12,7 +7,8 @@ type FadePropTypes = {
 	delay?: number;
 	onAnimationEnd?: Function;
 	children: ReactNode | ReactNodeArray;
-	[rest: string]: any;
+	style?: CSSProperties;
+	[rest: string]: unknown;
 };
 
 export const Fade = forwardRef(({
@@ -21,6 +17,7 @@ export const Fade = forwardRef(({
 									delay = 0,
 									onAnimationEnd = () => {
 									},
+									style = {},
 									children,
 									...rest
 								}: FadePropTypes,
@@ -45,7 +42,7 @@ export const Fade = forwardRef(({
 		shouldRender ? (
 				<div
 					style={{
-						...rest.style,
+						...style,
 						animation: `${show ? 'fade-in' : 'fade-out'} ${time}s ${delay}s ease-out forwards`
 					}}
 					onAnimationEnd={onAnimationEndFn}

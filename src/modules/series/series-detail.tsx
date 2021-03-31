@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import styles from './series.module.scss';
 import { useParams } from 'react-router-dom';
 import { Card } from '../../components/card/card';
-import { CardType } from '../../models/enums';
 import { getSeriesById } from '../../api/series.api';
 import { Series } from '../../models/series.type';
 import { Fade } from '../../components/Fade';
@@ -20,7 +19,7 @@ export const SeriesDetail = () => {
 		<>
 			{series &&
 			<Fade className={styles.container}>
-				<Card item={series} type={CardType.Series}/>
+				<Card item={series}/>
 			</Fade>
 			}
 		</>
